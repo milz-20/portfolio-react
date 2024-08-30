@@ -1,0 +1,26 @@
+.hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 35px;
+}
+.hero img {
+    margin-top: 50px;
+    width: 225px; /* Adjust the width as needed */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 70%; /* Optional: Make the image circular */
+    margin-right: 20px;
+    margin-left: 20px; /* Adds space between the image and text */
+}
+.hero h1{
+    text-align: center;
+    width: 70%;
+    font-size: 50px;
+    font-weight: 200;
+}
+.hero h1 span{
+    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
