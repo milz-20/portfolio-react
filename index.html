@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Code Marathon 🚀</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 800px;
+      width: 92%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      opacity: 0.85;
+      margin-bottom: 30px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 16px 20px;
+      border-radius: 12px;
+      text-align: center;
+      min-width: 90px;
+    }
+
+    .time {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .label {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .devs {
+      margin-top: 20px;
+    }
+
+    .dev {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .dev-name {
+      font-weight: 600;
+    }
+
+    .task {
+      opacity: 0.85;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔥 Code Marathon 🚀</h1>
+    <div class="subtitle">
+      Starts tomorrow at <strong>7:00 AM</strong> — Let’s build, break & ship!
+    </div>
+
+    <div class="countdown">
+      <div class="time-box">
+        <div class="time" id="days">0</div>
+        <div class="label">Days</div>
+      </div>
+      <div class="time-box">
+        <div class="time" id="hours">0</div>
+        <div class="label">Hours</div>
+      </div>
+      <div class="time-box">
+        <div class="time" id="minutes">0</div>
+        <div class="label">Minutes</div>
+      </div>
+      <div class="time-box">
+        <div class="time" id="seconds">0</div>
+        <div class="label">Seconds</div>
+      </div>
+    </div>
+
+    <div class="devs">
+      <div class="dev">
+        <div class="dev-name">👨‍💻 dev-pat</div>
+        <div class="task">Integrating Shiprocket API</div>
+      </div>
+      <div class="dev">
+        <div class="dev-name">👨‍💻 dev-sarv</div>
+        <div class="task">Complete backend framework</div>
+      </div>
+      <div class="dev">
+        <div class="dev-name">👨‍💻 dev-hari</div>
+        <div class="task">Complete user login framework</div>
+      </div>
+      <div class="dev">
+        <div class="dev-name">👨‍💻 dev-shub</div>
+        <div class="task">To be decided 🤔</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      💡 Tip: Commit early. Commit often. Push before you sleep.
+    </div>
+  </div>
+
+  <script>
+    function getMarathonStart() {
+      const now = new Date();
+      const start = new Date();
+      start.setDate(now.getDate() + 1);
+      start.setHours(7, 0, 0, 0); // 7:00 AM tomorrow
+      return start;
+    }
+
+    const marathonStart = getMarathonStart();
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = marathonStart - now;
+
+      if (diff <= 0) {
+        document.querySelector(".countdown").innerHTML =
+          "<h2>🚀 Marathon Started! Let’s Go!</h2>";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
